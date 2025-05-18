@@ -1,0 +1,3 @@
+[submodule "AIProvider"]
+	path = AIProvider
+	url = https://github.com/kidfearless/AIProvider.git

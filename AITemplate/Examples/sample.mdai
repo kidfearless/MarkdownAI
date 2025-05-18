@@ -1,0 +1,31 @@
+config:
+provider = OpenAI
+api_key = your-api-key-here
+model = gpt-4
+
+system:
+You are a helpful AI assistant that answers questions about AI and programming.
+
+user:
+What are the advantages of using a markdown-like format for AI prompt files?
+
+assistant:
+Using a markdown-like format for AI prompt files offers several advantages:
+
+1. **Human-readable structure**: The format is intuitive and easy to read for humans, making it simple to create and edit prompt files without specialized tools.
+
+2. **Familiar syntax**: Many developers and content creators are already familiar with markdown, so the learning curve is minimal.
+
+3. **Section separation**: Clear delineation between different components (system prompts, user queries, assistant responses) makes it easy to understand the flow of conversation.
+
+4. **Lightweight**: The format is text-based and lightweight, making files easy to store, version control, and share.
+
+5. **Extensibility**: The format can be extended to support additional metadata, configuration options, or specialized content types while maintaining backward compatibility.
+
+6. **Processing efficiency**: Simple parsing requirements mean applications can efficiently process these files with minimal overhead.
+
+7. **Portability**: Being plain text, these files work across all operating systems and text editors without compatibility issues.
+
+8. **Version control friendly**: Changes to the files are easily tracked in version control systems like Git, with meaningful diffs.
+
+This combination of simplicity, familiarity, and flexibility makes markdown-like formats an excellent choice for structured AI prompt files.

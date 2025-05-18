@@ -1,0 +1,12 @@
+config:
+provider = OpenAI
+api_key = your-api-key-here
+model = gpt-4
+
+system:
+    You are a helpful AI assistant that follows indentation formatting.
+
+user:
+    This file uses indentation for content blocks.
+    The file update feature should maintain this style.
+    Can you explain how the indentation detection works?

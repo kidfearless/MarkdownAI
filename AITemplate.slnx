@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AIProvider/AIProvider.csproj" />
+  <Project Path="AITemplate/AITemplate.csproj" />
+</Solution>
