@@ -1,0 +1,20 @@
+config:
+provider: OpenAI
+apikey: $OPENAI_API_KEY
+model: gpt-4-vision-preview
+
+system:
+You are an AI assistant that can analyze and describe images. When presented with an image, provide a detailed description and any relevant insights.
+
+user:
+I'm going to show you some images and I'd like you to describe what you see.
+
+image:
+./sample-images/landscape.jpg
+
+user:
+What can you tell me about this image? What time of day was it taken?
+
+user:
+Here's another image embedded inline: ![chart](./sample-images/chart.png)
+Can you explain what this chart is showing?

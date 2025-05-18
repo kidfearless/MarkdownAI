@@ -39,20 +39,34 @@ You can also double-click any `.mdai` file in File Explorer to run it.
 
 ## Example Files
 
-- `sample.mdai` - Basic example of an AI prompt file
-- `sample-input.md` - Example using standard markdown format
-- `sample-input-shorthand.md` - Example using shorthand notation (s:, u:, a:)
-- `sample-input-new-format.md` - Example using the new format
-- `test-shorthand.mdai` - Another example using shorthand notation
-- `test-indented.mdai` - Example with indented content
-- `test-file-updating.mdai` - Example demonstrating file updating features
+- `sample.mdai` - Basic example of an AI prompt file with a question about clean code principles
+- `sample-input.md` - Example using standard markdown format for documentation structure
+- `sample-input-new-format.md` - Example using the new format for handling missing data in pandas
+- `test-indented.mdai` - Example with indented content for LINQ queries in C#
+- `test-file-updating.mdai` - Example demonstrating file updating features with project planning and security considerations
+- `image-embedding.mdai` - Example demonstrating markdown syntax in prompts, including image references
 
 ## File Format
 
 Each `.mdai` file should have:
 
 1. A `config:` section with provider details
-2. One or more message sections using either full notation (`system:`, `user:`, `assistant:`) or shorthand (`s:`, `u:`, `a:`)
+2. One or more message sections using full notation (`system:`, `user:`, `assistant:`)
+
+### Markdown Syntax
+
+AITemplate supports standard markdown syntax in messages, including:
+
+```
+user:
+You can use standard markdown syntax in messages:
+- **Bold text**
+- *Italic text*
+- [Links](https://example.com)
+- ![Image references](path/to/image.png)
+```
+
+Note that the application treats image references as regular text content and doesn't process them specially.
 
 ### Environment Variables in Config
 

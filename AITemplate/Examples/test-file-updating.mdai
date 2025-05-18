@@ -1,0 +1,82 @@
+config:
+provider: OpenAI
+apikey: $OPENAI_API_KEY
+model: gpt-4
+
+system:
+You are an AI assistant that helps with project planning and documentation. You provide structured, concise responses.
+
+user:
+I'm starting a new web application project using ASP.NET Core. Could you help me create a basic project plan with the main phases and tasks I should consider? I'd like to include both backend and frontend development tasks.
+
+assistant:
+Here's a basic project plan for your ASP.NET Core web application:
+
+## Project Phases and Tasks
+
+### 1. Planning & Requirements (1-2 weeks)
+- Define project scope and objectives
+- Gather functional requirements
+- Create user stories/use cases
+- Define technical requirements
+- Select technology stack (ASP.NET Core version, frontend framework)
+- Set up project management tools
+
+### 2. Architecture & Design (1-2 weeks)
+- Design database schema
+- Design API endpoints
+- Create system architecture diagram
+- Define security approach
+- Plan deployment strategy
+- Create UI/UX wireframes
+
+### 3. Environment Setup (3-5 days)
+- Set up development environment
+- Configure source control (Git)
+- Set up CI/CD pipeline
+- Configure development database
+- Set up logging and monitoring
+
+### 4. Backend Development (4-8 weeks)
+- Create database models and migrations
+- Implement data access layer
+- Develop business logic layer
+- Create API controllers
+- Implement authentication/authorization
+- Write unit tests
+- Implement error handling
+
+### 5. Frontend Development (4-6 weeks)
+- Set up frontend framework (Angular, React, or Vue)
+- Create components and services
+- Implement responsive UI
+- Connect to backend APIs
+- Implement client-side validation
+- Write frontend tests
+
+### 6. Integration & Testing (2-4 weeks)
+- Perform integration testing
+- Conduct performance testing
+- Execute security testing
+- Fix identified bugs
+- Perform cross-browser testing
+- Conduct user acceptance testing
+
+### 7. Deployment & Launch (1-2 weeks)
+- Prepare production environment
+- Deploy application
+- Configure monitoring
+- Perform final testing in production
+- Create documentation
+- Launch application
+
+### 8. Post-Launch (Ongoing)
+- Address feedback and bug reports
+- Monitor application performance
+- Plan future enhancements
+- Regular maintenance and updates
+
+Would you like me to expand on any specific phase or task in this plan?
+
+user:
+This looks great! Could you provide more details on the security considerations I should keep in mind for the Architecture & Design phase?

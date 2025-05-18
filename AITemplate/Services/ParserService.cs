@@ -29,9 +29,15 @@ public struct ParserService
     {
         // Parse the file
         var blocks = _markdownParser.ParseFile(filePathOrContent);
+
         var configBlock = blocks.FirstOrDefault(b => b is ConfigBlock) ?? throw new InvalidOperationException("No config block found.");
         var providerConfig = _configParser.Parse(configBlock.RawContent.AsSpan());
-        var messages = blocks.Select(b => b.ToMessage()).Where(m => m != null).ToList();
+
+        var messages = blocks
+            .TakeLast(providerConfig.ShortTermMemory)
+            .Select(b => b.ToMessage())
+            .Where(m => m != null)
+            .ToList();
 
         return new ParserResult(providerConfig, messages!);
     }

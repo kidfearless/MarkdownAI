@@ -1,31 +1,37 @@
 config:
-provider = OpenAI
-api_key = your-api-key-here
-model = gpt-4
+provider= OpenAI
+api_key= $OPENAI_API_KEY
+model= gpt-4
 
 system:
-You are a helpful AI assistant that answers questions about AI and programming.
+You are a helpful AI assistant with expertise in software development.
 
 user:
-What are the advantages of using a markdown-like format for AI prompt files?
+![text](../Parser/ConfigParser.cs) what does this file do?
+Assistant:
+The given `ConfigParser.cs` file is a C# program to parse configuration files. It reads from a key-value format, where each line contains a key and value separated by an `=` symbol. It stores the parsed keys and values in a dictionary object, which can be queried later for specific configuration values.
 
-assistant:
-Using a markdown-like format for AI prompt files offers several advantages:
+Here are some key behaviors of this parser:
 
-1. **Human-readable structure**: The format is intuitive and easy to read for humans, making it simple to create and edit prompt files without specialized tools.
+1. It reads lines from the configuration content, and for each line, it interprets everything before the first `=` symbol as the key and everything after as the value.
+2. Both keys and values are trimmed to remove unnecessary leading or trailing whitespaces.
+3. It interprets a value starting with `$` as an environment variable. The parser will attempt to replace it with the value stored in the environment under the same name.
+4. It saves parsed keys and values into a dictionary with case-insensitive keys.
+5. The dictionary is later packaged into a `ProviderConfig` object and returned, which has an `Options` property that stores the key-value pairs.
 
-2. **Familiar syntax**: Many developers and content creators are already familiar with markdown, so the learning curve is minimal.
+Please note that this function doesn't handle empty keys properly and it is unable to process values that contain multiple `=` symbols correctly.
 
-3. **Section separation**: Clear delineation between different components (system prompts, user queries, assistant responses) makes it easy to understand the flow of conversation.
+For example, if your config file was defined as:
+```
+database_uri = mongodb://localhost:27017
+api_key = $api_key
+```
+After parsing, the `Options` dictionary of the `ProviderConfig` object would look like this:
+```
+{
+    "database_uri": "mongodb://localhost:27017",
+    "api_key": <The actual value stored in "api_key" environment variable>,
+}
+```
 
-4. **Lightweight**: The format is text-based and lightweight, making files easy to store, version control, and share.
-
-5. **Extensibility**: The format can be extended to support additional metadata, configuration options, or specialized content types while maintaining backward compatibility.
-
-6. **Processing efficiency**: Simple parsing requirements mean applications can efficiently process these files with minimal overhead.
-
-7. **Portability**: Being plain text, these files work across all operating systems and text editors without compatibility issues.
-
-8. **Version control friendly**: Changes to the files are easily tracked in version control systems like Git, with meaningful diffs.
-
-This combination of simplicity, familiarity, and flexibility makes markdown-like formats an excellent choice for structured AI prompt files.
+User:

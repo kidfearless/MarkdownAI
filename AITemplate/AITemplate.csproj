@@ -5,12 +5,28 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PublishReadyToRun>true</PublishReadyToRun>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  
+  <!-- AOT Compilation settings (only enabled when NATIVEAOT is defined) -->
+  <PropertyGroup Condition="'$(NativeAot)' == 'true'">
+    <PublishAot>true</PublishAot>
+    <TrimMode>partial</TrimMode>
+    <OptimizationPreference>Speed</OptimizationPreference>
+    <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+    <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+    <StripSymbols>true</StripSymbols>
+  </PropertyGroup>
+  
+  <!-- ReadyToRun compilation settings (fallback when NATIVEAOT is not defined) -->
+  <PropertyGroup Condition="'$(NativeAot)' != 'true'">
+    <PublishReadyToRun>true</PublishReadyToRun>
+  </PropertyGroup>
     
-    <!-- Application metadata -->
+  <!-- Application metadata -->
+  <PropertyGroup>
     <Product>AI Template Runner</Product>
     <Description>A tool to process and run AI template markdown files</Description>
     <Company>AI Template Project</Company>
@@ -47,6 +63,9 @@
     <None Update="*.mdai">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Examples\" />
   </ItemGroup>
 
 </Project>
